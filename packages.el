@@ -97,7 +97,7 @@
                  ((org-agenda-overriding-header "Habits")
                   (org-agenda-sorting-strategy
                    '(todo-state-down effort-up category-keep))))
-                (" " "Agenda"
+                ("j" "Agenda"
                  ((agenda "" nil)
                   (tags "REFILE"
                         ((org-agenda-overriding-header "Tasks to Refile")
@@ -717,7 +717,7 @@ as the default task."
             (when bh/keep-clock-running
               (bh/clock-in-default-task)))))))
 
-  (defvar bh/organization-task-id "e2fb68ed-2c63-4f32-9fa3-9ce17349191e")
+  (defvar bh/organization-task-id "6cc0cec9-f8f9-4402-809d-c7f897e50751")
 
   (defun bh/clock-out-maybe ()
     (when (and bh/keep-clock-running
