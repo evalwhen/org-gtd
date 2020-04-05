@@ -1127,6 +1127,24 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;; (setq org-export-with-LaTeX-fragments t)
   ;; ;; Increase default number of headings to export
   ;; (setq org-export-headline-levels 6)
+  (setq org-publish-project-alist
+        (quote (("norang-org"
+                 :base-directory "~/git/org"
+                 :publishing-directory "~/h-notes"
+                 :recursive t
+                 :table-of-contents nil
+                 :base-extension "org"
+                 :publishing-function org-html-publish-to-html
+                 :style-include-default nil
+                 :section-numbers nil
+                 :table-of-contents nil
+                 ;; :html-head "<link rel=\"stylesheet\" href=\"norang.css\" type=\"text/css\" />"
+                 :auto-sitemap t
+                 :sitemap-filename "index.html"
+                 :sitemap-title "h-notes"
+                 ;; :sitemap-style "tree"
+                 :author-info nil
+                 :creator-info nil))))
 
   ;; ;; List of projects
   ;; ;; norang       - http://www.norang.ca/
@@ -1295,13 +1313,13 @@ Skip project and sub-project tasks, habits, and loose non-project tasks."
   ;; ;; the project that includes this file
   ;; ;;
   ;; ;; It's bound to C-S-F12 so I just edit and hit C-S-F12 when I'm done and move on to the next thing
-  ;; (defun bh/save-then-publish (&optional force)
-  ;;   (interactive "P")
-  ;;   (save-buffer)
-  ;;   (org-save-all-org-buffers)
-  ;;   (let ((org-html-head-extra)
-  ;;         (org-html-validation-link "<a href=\"http://validator.w3.org/check?uri=referer\">Validate XHTML 1.0</a>"))
-  ;;     (org-publish-current-project force)))
+  (defun bh/save-then-publish (&optional force)
+    (interactive "P")
+    (save-buffer)
+    (org-save-all-org-buffers)
+    (let ((org-html-head-extra)
+          (org-html-validation-link "<a href=\"http://validator.w3.org/check?uri=referer\">Validate XHTML 1.0</a>"))
+      (org-publish-current-project t)))
 
   ;; (global-set-key (kbd "C-s-<f12>") 'bh/save-then-publish)
 
